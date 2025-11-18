@@ -48,21 +48,23 @@ function Todo() {
           )}
         </div>
 
-        {tasks.length === 0 ? (
-          <div className="empty-text">No tasks yet. Add one above to get started!</div>
-        ) : (
-          <ul className="task-list">
-            {tasks.map((task, index) => (
-              <li key={index} className={task.done ? "completed" : ""}>
-                <span className="task-text">{task.text}</span>
-                <div className="actions">
-                  <span onClick={() => toggleTask(index)}>✔️</span>
-                  <span onClick={() => deleteTask(index)}>🗑️</span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
+        <div className="task-list-wrapper">
+          {tasks.length === 0 ? (
+            <div className="empty-text">No tasks yet. Add one above to get started!</div>
+          ) : (
+            <ul className="task-list">
+              {tasks.map((task, index) => (
+                <li key={index} className={task.done ? "completed" : ""}>
+                  <span className="task-text">{task.text}</span>
+                  <div className="actions">
+                    <span onClick={() => toggleTask(index)}>✔️</span>
+                    <span onClick={() => deleteTask(index)}>🗑️</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
     </div>
   );
