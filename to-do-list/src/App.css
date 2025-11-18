@@ -1,13 +1,20 @@
-/* Background Gradient */
 body {
     margin: 0;
     padding: 0;
     font-family: "Inter", sans-serif;
     background: linear-gradient(135deg, #e9ecff, #dfeaff);
     height: 100vh;
+    overflow: hidden;
 }
 
-/* Center container */
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scrollbar-width: none;
+}
+
 .todo-container {
     width: 50%;
     max-width: 600px;
@@ -15,7 +22,6 @@ body {
     text-align: center;
 }
 
-/* Title */
 .todo-container h1 {
     font-size: 28px;
     font-weight: 600;
@@ -29,42 +35,38 @@ body {
     color: #555;
 }
 
-/* Input Row Box */
 .input-wrapper {
     width: 100%;
     background: #ffffff;
-    padding: 10px 14px;
-    border-radius: 16px;
+    padding: 14px 20px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
     margin-bottom: 30px;
     height: 55px;
+    box-sizing: border-box;
 }
 
-/* Input field (glossy look) */
 .input-wrapper input {
     flex: 1;
-    background: #dbdcde;      /* slightly bluish background like model UI */
+    background: #f4f6ff;
     border: 1.5px solid #e0e5ff;
-    padding: 5px 7px;
-    border-radius: 5px;
+    padding: 10px 14px;
+    border-radius: 7px;
     font-size: 16px;
     outline: none;
-    height: 17px;
+    height: 15px;
     box-shadow: inset 0 2px 5px rgba(0,0,0,0.08);
     transition: all 0.2s ease;
 }
 
 .input-wrapper input:focus {
     border-color: #b9c3ff;
-    box-shadow: 0 0 8px rgba(140, 155, 255, 0.4), 
-                inset 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 0 8px rgba(140, 155, 255, 0.4), inset 0 2px 5px rgba(0,0,0,0.1);
     background: #eef1ff;
 }
 
-
-/* Add Button */
 .add-btn {
     background: black;
     color: white;
@@ -77,25 +79,54 @@ body {
     font-size: 22px;
     cursor: pointer;
     user-select: none;
-    margin-left: 7px;
+    margin-left: 10px;
 }
 
-/* Task box */
 .task-box {
+    width: 100%;
     background: white;
     padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    min-height: 200px; /* Ensure minimum height to match UI model */
 }
 
-/* Empty state */
+.task-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 0 5px;
+    color: #555;
+}
+
+.task-summary span {
+    margin-right: 6px;
+}
+
+.clear-completed {
+    color: #e95353;
+    cursor: pointer;
+    font-weight: 500;
+    margin-left: auto;
+}
+
+.clear-completed:hover {
+    text-decoration: underline;
+}
+
 .empty-text {
-    color: gray;
+    color: #999;
     font-size: 16px;
-    padding: 60px 0;
+    padding: 80px 20px; /* More padding to match UI model height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
 }
 
-/* Task list styling */
 .task-list {
     list-style: none;
     padding: 0;
@@ -105,6 +136,7 @@ body {
 .task-list li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 12px 15px;
     background: #f7f7f7;
     border-radius: 12px;
@@ -116,7 +148,11 @@ body {
     color: gray;
 }
 
-/* Action icons */
+.actions {
+    display: flex;
+    align-items: center;
+}
+
 .actions span {
     cursor: pointer;
     font-size: 20px;
